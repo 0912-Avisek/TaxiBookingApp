@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Details</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f9;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background-color: #007bff;
+            color: white;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            white-space: nowrap; /* Prevents text from wrapping to a new line */
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s ease;
+        }
+
+        tbody tr:last-of-type {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        th {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>SOURCE</th>
+                <th>EMAIL</th>
+                <th>DESTINATION</th>
+                <th>TIME</th>
+                <th>DATE</th>
+                <th>COMFORT</th>
+                <th>ADULT</th>
+                <th>CHILDREN</th>
+                <th>MESSAGE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each= "travel : ${listoftraveldetails}" >
+                <td th:text="${travel.id}"></td>
+                <td th:text="${travel.name}"></td>
+                <td th:text="${travel.source}"></td>
+                <td th:text="${travel.email}"></td>
+                <td th:text="${travel.destination}"></td>
+                <td th:text="${travel.time}"></td>
+                <td th:text="${travel.date}"></td>
+                <td th:text="${travel.comfort}"></td>
+                <td th:text="${travel.adult}"></td>
+                <td th:text="${travel.childern}"></td>
+                <td th:text="${travel.message}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

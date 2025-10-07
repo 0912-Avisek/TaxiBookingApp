@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Password</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 1rem;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 28rem;
+        }
+        .main-heading {
+            font-size: 1.875rem; /* 30px */
+            font-weight: 700;
+            text-align: center;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+        .sub-heading {
+            font-size: 0.875rem; /* 14px */
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.25rem;
+        }
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease-in-out;
+            box-sizing: border-box;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.25);
+        }
+        hr {
+            border-top: 2px solid #e5e7eb;
+            margin: 2rem 0;
+        }
+        .message-box {
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+        .hidden {
+            display: none;
+        }
+        .success {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+        .error {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+        .form-button {
+            width: 100%;
+            background-color: #4f46e5;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.75rem 0;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .form-button:hover {
+            background-color: #4338ca;
+        }
+        .form-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1 class="main-heading">Change Credentials</h1>
+        <p class="sub-heading">Update your username and password for enhanced security.</p>
+        
+        <form  th:action="changepassword"  method="post" >
+            <!-- Old Username/Email Field -->
+            <div class="form-group">
+                <label for="old-username">Old Username </label>
+                <input type="text" id="old-username" name="oldusername" class="form-input">
+            </div>
+            
+            <!-- Old Password Field -->
+            <div class="form-group">
+                <label for="old-password">Old Password</label>
+                <input type="password" id="old-password" name="oldpassword" class="form-input">
+            </div>
+            
+            <h2 th:text="${msg}"></h2>
+            <hr>
+
+            <!-- New Username/Email Field -->
+            <div class="form-group">
+                <label for="new-username">New Username</label>
+                <input type="text" id="new-username" name="newusername" class="form-input">
+            </div>
+            
+            <!-- New Password Field -->
+            <div class="form-group">
+                <label for="new-password">New Password</label>
+                <input type="password" id="new-password" name="newpassword" class="form-input">
+            </div>
+            
+            <!-- Message Box for Success/Error -->
+            <div class="message-box hidden"></div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="form-button">Update Credentials</button>
+        </form>
+    </div>
+</body>
+</html>
